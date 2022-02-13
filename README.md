@@ -40,7 +40,7 @@ let g:everforest_background = 'soft'
 + `Ctrl + J` for moving 10 lines down.
 + `Ctrl + K` for moving 10 lines up.
 ##### C++ compilation
-+ Press `Shift + Z` to compile and run.
++ Press `Shift + Z` to compile.
 #### Plugin settings
 ##### NerdTree
 + `Leader + F` for viewing file.
