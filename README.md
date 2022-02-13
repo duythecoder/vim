@@ -36,11 +36,11 @@ let g:everforest_background = 'soft'
 + `Ctrl + L` for **right** pane.
 + `Ctrl + J` for **bottom** pane.
 + `Ctrl + K` for **top** pane.
-###### Navigation
+##### Navigation
 + `Ctrl + J` for moving 10 lines down.
 + `Ctrl + K` for moving 10 lines up.
-###### C++ compilation
-+ Press `r` to compile and run.
+##### C++ compilation
++ Press `Shift + Z` to compile and run.
 #### Plugin settings
 ##### NerdTree
 + `Leader + F` for viewing file.
@@ -69,7 +69,3 @@ let g:everforest_background = 'soft'
   - `Leader + de` to evaluate an expression.
   - `Leader + dw` to set a watch on a variable.
   - `Leader + do` to show the output.
-
-## CP Usage
-For ease in working with Vim in CP, I created some Powershell scripts which you can run from the command line to automatically create files for you.
-- [cp.ps1](https://github.com/duythecoder/nvim-settings/blob/main/cp-scripts/cp.ps1) for creating `.vimspector.json` and `main.cpp`
