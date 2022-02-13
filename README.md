@@ -4,7 +4,7 @@
 - [git](https://git-scm.com/) for vim-plug
 - [vim-plug](https://github.com/junegunn/vim-plug) for installing plugins
 - [Powerline fonts](https://github.com/powerline/fonts) for the status line
-- [Python 3.6+](https://www.python.org/downloads/) for Vimspector
+- [Python 3.6+](https://www.python.org/downloads/) for Vimspector[^1]
 
 ![Vim with DejaVu Sans Mono for Powerline font](https://github.com/duythecoder/nvim-settings/blob/main/screenshots/Vim%20with%20DejaVu%20Sans%20Mono%20for%20Powerline%20font.png)
 [^1]: On my PC, I have great difficulty in debugging because the debugger continuously jump into libraries, I still haven't found a solution for this.
