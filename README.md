@@ -3,14 +3,11 @@
 - [Neovim](https://neovim.io/)
 - [git](https://git-scm.com/) for vim-plug
 - [vim-plug](https://github.com/junegunn/vim-plug) for installing plugins
-- [vim-airline](https://github.com/vim-airline/vim-airline) for the status line
 - [Powerline fonts](https://github.com/powerline/fonts) for the status line
-- [NerdTree](https://github.com/preservim/nerdtree) for browsing files & folders in Neovim
 - [Python 3.6+](https://www.python.org/downloads/) for Vimspector
-- [Vimspector](https://github.com/puremourning/vimspector) for debugging[^1]
 
 ![Vim with DejaVu Sans Mono for Powerline font](https://github.com/duythecoder/nvim-settings/blob/main/screenshots/Vim%20with%20DejaVu%20Sans%20Mono%20for%20Powerline%20font.png)
-[^1]: On my machine, I have great difficulty in debugging because the debugger continuously jump into libraries, I still haven't found a solution for this.
+[^1]: On my PC, I have great difficulty in debugging because the debugger continuously jump into libraries, I still haven't found a solution for this.
 
 ## Properties
 This copy of Neovim is shipped with:
@@ -19,9 +16,10 @@ This copy of Neovim is shipped with:
 set background=dark
 let g:everforest_background = 'soft'
 ```
-- [vim-airline](https://github.com/vim-airline/vim-airline)
-- [NerdTree](https://github.com/preservim/nerdtree)
-- [Vimspector](https://github.com/puremourning/vimspector)
+- [vim-airline status bar](https://github.com/vim-airline/vim-airline)
+- [NerdTree file browser](https://github.com/preservim/nerdtree)
+- [vim-polyglot syntax highlighter](https://github.com/sheerun/vim-polyglot)
+- [Vimspector debugger](https://github.com/puremourning/vimspector)
 
 ## Installation
 - Add Python and `pip` to `%PATH%`, install Python 3 in Neovim using `pip3 install --user neovim`.
