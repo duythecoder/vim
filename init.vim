@@ -69,7 +69,7 @@ nnoremap J 10j
 nnoremap K 10k
 " g++
 nnoremap <S-z> :w <bar> !g++ -std=c++11 -O2 -Wall % -o %:r<CR>
-nnoremap <S-x> %:r.exe<CR>
+"nnoremap <S-x> %:r.exe<CR>
 " Vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
 nnoremap <leader>dd :call vimspector#Launch()<CR>
