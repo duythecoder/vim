@@ -71,3 +71,7 @@ let g:everforest_background = 'soft'
   - `Leader + de` to evaluate an expression.
   - `Leader + dw` to set a watch on a variable.
   - `Leader + do` to show the output.
+
+## CP Usage
+For ease in working with Vim in CP, I created some Powershell scripts which you can run from the command line to automatically create files for you.
+- [cp.ps1](https://github.com/duythecoder/nvim-settings/blob/main/cp-scripts/cp.ps1) for creating `.vimspector.json` and `main.cpp`
