@@ -24,8 +24,8 @@ let g:everforest_background = 'soft'
 ## Installation
 - Add Python and `pip` to `%PATH%`, install Python 3 in Neovim using `pip3 install --user neovim`.
 - Add Neovim to `%PATH%`, start Windows Terminal, type `nvim` to start Neovim. Type `echo stdpath('config')` to get the settings path for Neovim.
-- Copy `init.vim` into that folder, `:w`, `:so %`, `:PlugInstall` to install all plugins.
-- Restart Neovim.
+- Copy `init.vim` into that folder, `:w`, `:so %`, `:PlugInstall`, [:VimspectorInstall](https://github.com/puremourning/vimspector) to install all plugins (I use `:VimspectorInstall --all`).
+- Once again, `:w`, `:so %` and restart Neovim.
 
 ## Usage
 - Leader key is the **space** key.
