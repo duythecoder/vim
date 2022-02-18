@@ -20,6 +20,7 @@ let g:everforest_background = 'soft'
 - [NerdTree file browser](https://github.com/preservim/nerdtree)
 - [vim-polyglot syntax highlighter](https://github.com/sheerun/vim-polyglot)
 - [Vimspector debugger](https://github.com/puremourning/vimspector)
+- My default C++ template
 
 ## Installation
 - Add Python and `pip` to `%PATH%`, install Python 3 in Neovim using `pip3 install --user neovim`.
