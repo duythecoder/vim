@@ -49,15 +49,59 @@ set smartindent			" Makes indenting smart
 set expandtab			" Converts tabs to spaces
 set linebreak			" Word wrap
 
-"*---------------------------------------------------KEYMAPS-----------------------------------------------------------*
+" Default C++ code
+autocmd FileType cpp call IoStream()
+fu! IoStream()
+	if line("$") == 1
+		call append(0, "#include <bits/stdc++.h>")
+		call append(1, "using namespace std;")
+		call append(2, "")
+		call append(3, "#define fastio ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);")
+		call append(4, "#define ln \"\\n\"")
+		call append(5, "#define sp \" \"")
+		call append(6, "#define fpp(a, b, c) for (int a = b; a <= c; a++)")
+		call append(7, "#define fmm(a, b, c) for (int a = b; a >= c; a--)")
+		call append(8, "#define printarr(arr, st, en) fpp(i, st, en) cout << arr[i] << sp; cout << ln;")
+		call append(9, "")
+    call append(10, "#define vt vector")
+		call append(11, "#define pb push_back")
+		call append(12, "#define sz(A) A.size()")
+		call append(13, "")
+    call append(14, "#define ll long long")
+		call append(15, "#define ull unsigned long long")
+		call append(16, "")
+    call append(17, "const int mod = 1e9 + 7;")
+		call append(18, "const int mxn = 1e5 + 1;")
+		call append(19, "")
+    call append(20, "int t;")
+		call append(21, "")
+    call append(22, "void solve(){")
+		call append(23, "")
+    call append(24, "}")
+		call append(25, "")
+    call append(26, "void input(){")
+		call append(27, "   cin >> t;")
+		call append(28, "   while (t--){")
+		call append(29, "			solve();")
+		call append(30, "		}")
+		call append(31, "}")
+		call append(32, "")
+    call append(33, "int main(){")
+		call append(34, "		fastio;")
+		call append(35, "		input();")
+		call append(36, "}")
+  endif
+endfu
+
+" -------------------------------------------------------------------------------------------KEYMAP-----------------------------------------------------------------------------------------------------------
 " Map <leader> to <SPACE>
 let mapleader = ' '
 " NerdTree
 nnoremap <silent><leader>f :NERDTreeFind<CR>
 nnoremap <silent><leader>t :NERDTreeToggle<CR>
 " Switch tab using TAB
-nnoremap <TAB> :bnext<CR>
-nnoremap <S-TAB> :bprevious<CR>
+nnoremap <silent><TAB> :bnext<CR>
+nnoremap <silent><S-TAB> :bprevious<CR>
 " Switch between multiple files
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -68,8 +112,8 @@ nnoremap <C-l> <C-w>l
 nnoremap J 10j
 nnoremap K 10k
 " g++
-nnoremap <S-z> :w <bar> !g++ -std=c++11 -O2 -Wall % -o %:r<CR>
-"nnoremap <S-x> %:r.exe<CR>
+nnoremap <silent><S-z> :w <bar> !g++ -std=c++11 -O2 -Wall % -o %:r<CR>
+nnoremap <silent><S-x> :!%:r.exe<CR>
 " Vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
 nnoremap <leader>dd :call vimspector#Launch()<CR>
