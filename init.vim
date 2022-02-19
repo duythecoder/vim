@@ -65,6 +65,7 @@ nnoremap <silent><leader>t :NERDTreeToggle<CR>
 " Switch tab using TAB
 nnoremap <silent><TAB> :bnext<CR>
 nnoremap <silent><S-TAB> :bprevious<CR>
+nnoremap <silent><C-T> :tabnew<CR>
 " Switch between multiple files
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
