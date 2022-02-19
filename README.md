@@ -20,9 +20,13 @@ let g:everforest_background = 'soft'
 - [NerdTree file browser](https://github.com/preservim/nerdtree)
 - [vim-polyglot syntax highlighter](https://github.com/sheerun/vim-polyglot)
 - [Vimspector debugger](https://github.com/puremourning/vimspector)
-- My default C++ template
+- [See how](https://stackoverflow.com/questions/36341511/how-do-i-insert-text-at-the-beginning-of-a-vim-file-using-the-vimrc-file) I set my default C++ template
+
+### Coming soon
+- Automatically insert libraries into CPP file
 
 ## Installation
+### Windows
 - Add Python and `pip` to `%PATH%`, install Python 3 in Neovim using `pip3 install --user neovim`.
 - Add Neovim to `%PATH%`, start Windows Terminal, type `nvim` to start Neovim. Type `echo stdpath('config')` to get the settings path for Neovim.
 - Copy `init.vim` into that folder, `:w`, `:so %`, `:PlugInstall`, [:VimspectorInstall](https://github.com/puremourning/vimspector) to install all plugins (I use `:VimspectorInstall --all`).
@@ -31,7 +35,7 @@ let g:everforest_background = 'soft'
 ## Usage
 - Leader key is the **space** key.
 ### Keymap
-#### Neovim settings
+#### Neovim built-in settings
 ##### Switching between panes
 + `Ctrl + H` for **left** pane.
 + `Ctrl + L` for **right** pane.
@@ -41,12 +45,19 @@ let g:everforest_background = 'soft'
 + `Ctrl + J` for moving 10 lines down.
 + `Ctrl + K` for moving 10 lines up.
 ##### C++ compilation
-+ Press `Shift + Z` to compile.
++ `Shift + Z` to compile.
+##### Copy + paste between Vim and OS
++ `Leader + Y` for copying.
++ `Leader + P` for pasting.
+##### Terminal
++ `Shift + T` for starting terminal.
++ `Esc` for Terminal Normal mode.
 #### Plugin settings
 ##### NerdTree
 + `Leader + F` for viewing file.
 + `Leader + T` for toggling.
 ##### vim-airline#tabline
++ `Ctrl + T` for new tab.
 + `Tab` for switching to next tab.
 + `Shift + Tab` for switching to previous tab.
 ##### vim-spector
