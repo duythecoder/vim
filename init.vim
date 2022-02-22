@@ -1,12 +1,12 @@
 " CP Vim configuration for CP
 
-call plug#begin('C:\Users\LENOVO\AppData\Local\nvim\plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " Everforest theme from Sainnhe
 Plug 'sainnhe/everforest'
-" Power Line
+" Powerline
 Plug 'vim-airline/vim-airline'
-" NerdTree: explore sidebar for new folders and files in project
+" NerdTree: file explorer in Vim
 Plug 'scrooloose/nerdtree'
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
@@ -14,6 +14,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 " C++ Debugging
 Plug 'puremourning/vimspector'
+
 call plug#end()
 
 " Vimspector
@@ -21,6 +22,16 @@ call plug#end()
 if has('python') || has('python3')
 	silent! packadd vimspector
 endif
+
+" Theme settings
+if has('termguicolors')
+	set termguicolors
+endif
+
+set background=dark
+
+let g:everforest_background='soft'
+colorscheme everforest
 
 " Enable Power Line fonts
 let g:airline_powerline_fonts = 1
@@ -31,32 +42,30 @@ let g:airline#extensions#tabline#enabled = 1
 " Tab name display mode
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-" Everforest theme settings
-if has('termguicolors')
-	set termguicolors
-endif
-
-set background=dark
-
-let g:everforest_background='soft'
-colorscheme everforest
-
 " Vim settings
-set noshowmode			" Hide status
-set relativenumber			" Show line number
-set cursorline			" Highlight current line
-set smartindent			" Makes indenting smart
-set expandtab			" Converts tabs to spaces
-set linebreak			" Word wrap
+set noshowmode " Hide status
+set relativenumber " Relative numbering
+set cursorline " Highlight current line
+set smartindent "Makes indenting smart
+set expandtab " Converts tabs to spaces
+set linebreak " Word wrap
+set autoindent
+set shiftwidth=4
+set tabstop=8 " Tabs are at proper location
+set nohlsearch " Remove searching highlight occurences
 
 " Default C++ code
 " If the file is new, load a template if we have one,
 " delete the extra newline at EOF and place cursor on line 1.
-autocmd BufNewFile * silent! 0r C:/Users/LENOVO/AppData/Local/nvim/templates/%:e.tpl
+autocmd BufNewFile * silent! 0r ~/cp/temps/%:e.tpl
 autocmd BufNewFile * $d
 autocmd BufNewFile * 1"
+" ----------------------------COMMANDS--------------------------------
+" Automatically inserting libraries
+cnoremap st :r ~/cp/temps/libraries/segmentTree.cpp
+cnoremap lst :r ~/cp/temps/libraries/lazySegmentTree.cpp
 
-" -------------------------------------------------------------------------------------------KEYMAP-----------------------------------------------------------------------------------------------------------
+" -----------------------------KEYMAP---------------------------------
 " Map <leader> to <SPACE>
 let mapleader = ' '
 " NerdTree
@@ -65,7 +74,8 @@ nnoremap <silent><leader>t :NERDTreeToggle<CR>
 " Switch tab using TAB
 nnoremap <silent><TAB> :bnext<CR>
 nnoremap <silent><S-TAB> :bprevious<CR>
-nnoremap <silent><C-T> :tabnew<CR>
+nnoremap <silent><C-w> :close<CR>
+nnoremap <silent><C-t> :tabnew<CR>
 " Switch between multiple files
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -77,11 +87,12 @@ nnoremap <leader>p "*p
 " Navigate faster
 nnoremap J 10j
 nnoremap K 10k
+" Indenting
+nnoremap , i<C-t><C-[>j0
+nnoremap m i<C-d><C-[>j0
 " g++
 " Compile
 nnoremap <silent><S-z> :w <bar> !g++ -std=c++11 -O2 -Wall % -o %:r<CR>
-" Run
-" nnoremap <silent><S-x> :!./%:r<CR>
 " Terminal
 " Start terminal
 nnoremap <silent>T :vsplit <bar> :vertical resize -30 <bar> :term<CR>i

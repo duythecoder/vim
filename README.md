@@ -22,9 +22,6 @@ let g:everforest_background = 'soft'
 - [Vimspector debugger](https://github.com/puremourning/vimspector)
 - [See how](https://stackoverflow.com/questions/36341511/how-do-i-insert-text-at-the-beginning-of-a-vim-file-using-the-vimrc-file) I set my default C++ template
 
-### Coming soon
-- Automatically insert libraries into CPP file
-
 ## Installation
 ### Windows
 - Add Python and `pip` to `%PATH%`, install Python 3 in Neovim using `pip3 install --user neovim`.
@@ -41,11 +38,14 @@ let g:everforest_background = 'soft'
 + `Ctrl + L` for **right** pane.
 + `Ctrl + J` for **bottom** pane.
 + `Ctrl + K` for **top** pane.
-##### Navigation
+##### Fast navigation
 + `Ctrl + J` for moving 10 lines down.
 + `Ctrl + K` for moving 10 lines up.
 ##### C++ compilation
 + `Shift + Z` to compile.
+##### Auto indenting
++ `,` for indenting forwards.
++ `m` for indenting backwards.
 ##### Copy + paste between Vim and OS
 + `Leader + Y` for copying.
 + `Leader + P` for pasting.
@@ -58,6 +58,7 @@ let g:everforest_background = 'soft'
 + `Leader + T` for toggling.
 ##### vim-airline#tabline
 + `Ctrl + T` for new tab.
++ `Ctrl + W` for closing current tab.
 + `Tab` for switching to next tab.
 + `Shift + Tab` for switching to previous tab.
 ##### vim-spector
