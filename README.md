@@ -57,6 +57,7 @@ nvm install 12.12.0
 nvm alias default 12.12.0
 ```
 - Install Pacman for Ubuntu.
+
 [Full guide](https://www.youtube.com/watch?v=0a7Pelw4vrU)
 ```
 sudo pacman -S ccls
@@ -65,7 +66,8 @@ nvim
 ```
 - Copy from [coc-settings.json](https://github.com/duythecoder/nvim-settings/blob/main/plugin-assets/coc/coc-settings.json)
 - Copy example coc key bindings and other vim config from [here](https://github.com/neoclide/coc.nvim#example-vim-configuration).
-- Enable C++17: add a file called `.ccls` in root project folder.
+- Enable C++17: copy [.ccls](https://github.com/duythecoder/nvim-settings/blob/main/plugin-assets/coc/.ccls) in root project folder.
+
 [Full guide](https://www.youtube.com/watch?v=ViHgyApE9zM)
 
 ## Usage
