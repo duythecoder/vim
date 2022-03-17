@@ -21,14 +21,52 @@ let g:everforest_background = 'soft'
 - [NerdTree file browser](https://github.com/preservim/nerdtree)
 - [vim-polyglot syntax highlighter](https://github.com/sheerun/vim-polyglot)
 - [Vimspector debugger](https://github.com/puremourning/vimspector)
+- [ccls](https://github.com/MaskRay/ccls) language server
 - [See how](https://stackoverflow.com/questions/36341511/how-do-i-insert-text-at-the-beginning-of-a-vim-file-using-the-vimrc-file) I set my default C++ template
 
 ## Installation
-### Windows
-- Add Python and `pip` to `%PATH%`, install Python 3 in Neovim using `pip3 install --user neovim`.
-- Add Neovim to `%PATH%`, start Windows Terminal, type `nvim` to start Neovim. Type `echo stdpath('config')` to get the settings path for Neovim.
-- Copy `init.vim` into that folder, `:w`, `:so %`, `:PlugInstall`, [:VimspectorInstall](https://github.com/puremourning/vimspector) to install all plugins (I use `:VimspectorInstall --all`).
-- Once again, `:w`, `:so %` and restart Neovim.
+### Step 1: Initial installation from `init.vim`
+```
+pip3 install --user neovim
+nvim
+:echo stdpath('config')
+```
+- Copy [init.vim](https://github.com/duythecoder/nvim-settings/blob/main/init.vim) into the on-screen directory.
+```
+:w
+:so %
+:PlugInstall
+:VimspectorInstall --all
+```
+Find customizations of `:VimspectorInstall` [here](https://github.com/puremourning/vimspector#install-some-gadgets).
+### Step 2: ccls installation
+- Install NodeJS 12.12+:
+```
+sudo apt-get install nodejs
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+nano ~/.zshrc
+```
+- Add the following content into the file and save:
+```
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+```
+- Restart terminal.
+```
+nvm install 12.12.0
+nvm alias default 12.12.0
+```
+- Install Pacman for Ubuntu.
+[Full guide](https://www.youtube.com/watch?v=0a7Pelw4vrU)
+```
+sudo pacman -S ccls
+nvim
+:CocConfig
+```
+- Copy from [coc-settings.json](https://github.com/duythecoder/nvim-settings/blob/main/plugin-assets/coc/coc-settings.json)
+- Copy example coc key bindings and other vim config from [here](https://github.com/neoclide/coc.nvim#example-vim-configuration).
+- Enable C++17: add a file called `.ccls` in root project folder.
+[Full guide](https://www.youtube.com/watch?v=ViHgyApE9zM)
 
 ## Usage
 - Leader key is the **space** key.
@@ -39,14 +77,8 @@ let g:everforest_background = 'soft'
 + `Ctrl + L` for **right** pane.
 + `Ctrl + J` for **bottom** pane.
 + `Ctrl + K` for **top** pane.
-##### Fast navigation
-+ `Ctrl + J` for moving 10 lines down.
-+ `Ctrl + K` for moving 10 lines up.
 ##### C++ compilation
-+ `Shift + Z` to compile.
-##### Auto indenting
-+ `,` for indenting forwards.
-+ `m` for indenting backwards.
++ `:wc` to compile.
 ##### Copy + paste between Vim and OS
 + `Leader + Y` for copying.
 + `Leader + P` for pasting.
@@ -83,3 +115,20 @@ let g:everforest_background = 'soft'
   - `Leader + de` to evaluate an expression.
   - `Leader + dw` to set a watch on a variable.
   - `Leader + do` to show the output.
+##### coc (Example key bindings)
+- `Tab` for completion.
+- `<cr>` to choose first completion item.
+- `gd` to jump to definition
+- `gr` for references
+- `gy` for type definition
+- `K` for documentation
+- `Leader + rn` for renaming
+- `if`, `ic` for func/class selection in visual mode
+- Diagnostics:
+  - `Space + a` to list diagnostics.
+  - `[g` and `]g` to go prev/next in diagnostics.
+
+# References
+- [How to pip install neovim? - Reddit](https://www.reddit.com/r/neovim/comments/oczrmc/how_to_pip_install_neovim/)
+- [nvm command not found :( - DEV Community](https://dev.to/duhbhavesh/nvm-command-not-found-1ho)
+- [I want to install nodejs with latest version - Stack Overflow](https://stackoverflow.com/questions/58405961/i-want-to-install-nodejs-with-latest-version)
