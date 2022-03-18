@@ -131,6 +131,7 @@ nvim
   - `[g` and `]g` to go prev/next in diagnostics.
 
 # References
+- [doi dev - YouTube](https://www.youtube.com/channel/UC9aq09doyUlJCUToCqWYtDA)
 - [How to pip install neovim? - Reddit](https://www.reddit.com/r/neovim/comments/oczrmc/how_to_pip_install_neovim/)
 - [nvm command not found :( - DEV Community](https://dev.to/duhbhavesh/nvm-command-not-found-1ho)
 - [I want to install nodejs with latest version - Stack Overflow](https://stackoverflow.com/questions/58405961/i-want-to-install-nodejs-with-latest-version)
