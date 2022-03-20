@@ -55,12 +55,7 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 ```
 nvm install 12.12.0
 nvm alias default 12.12.0
-```
-- Install Pacman for Ubuntu.
-
-[Full guide](https://www.youtube.com/watch?v=0a7Pelw4vrU)
-```
-sudo pacman -S ccls
+sudo apt install ccls
 nvim
 :CocConfig
 ```
@@ -79,6 +74,9 @@ nvim
 + `Ctrl + L` for **right** pane.
 + `Ctrl + J` for **bottom** pane.
 + `Ctrl + K` for **top** pane.
+##### Navigation
++ `m` to move down 10 lines.
++ ',' to move up 10 lines.
 ##### C++ compilation
 + `:wc` to compile.
 ##### Copy + paste between Vim and OS
