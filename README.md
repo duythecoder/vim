@@ -1,5 +1,6 @@
 # Neovim settings
 ## Requirements
+- Ubuntu 20.04 LTS
 - [Neovim](https://neovim.io/)
 - [git](https://git-scm.com/) for vim-plug
 - [vim-plug](https://github.com/junegunn/vim-plug) for installing plugins
@@ -7,21 +8,25 @@
 - [Python 3.6+](https://www.python.org/downloads/) for Vimspector[^1]
 - [MinGW](https://sourceforge.net/projects/mingw/) for C++ compilation
 
-![Vim with DejaVu Sans Mono for Powerline font](https://github.com/duythecoder/nvim-settings/blob/main/screenshots/Vim%20with%20DejaVu%20Sans%20Mono%20for%20Powerline%20font.png)
+![Vim on WSL1 running on Windows Terminal with Ubuntu for Powerline font](https://github.com/duythecoder/nvim-settings/blob/main/screenshots/vim.png)
 [^1]: On my PC, I have great difficulty in debugging because the debugger continuously jump into libraries, I still haven't found a solution for this.
 
 ## Properties
 This copy of Neovim is shipped with:
-- [Everforest](https://github.com/sainnhe/everforest) theme:
+### Themes
+- [Everforest](https://github.com/sainnhe/everforest)
 ```
 set background=dark
 let g:everforest_background = 'soft'
 ```
+- [joshdick/onedark.vim](https://github.com/joshdick/onedark.vim)
+### Others
 - [vim-airline status bar](https://github.com/vim-airline/vim-airline)
 - [NerdTree file browser](https://github.com/preservim/nerdtree)
 - [vim-polyglot syntax highlighter](https://github.com/sheerun/vim-polyglot)
 - [Vimspector debugger](https://github.com/puremourning/vimspector)
 - [ccls](https://github.com/MaskRay/ccls) language server
+- [startify](https://github.com/mhinz/vim-startify) welcome screen
 - [See how](https://stackoverflow.com/questions/36341511/how-do-i-insert-text-at-the-beginning-of-a-vim-file-using-the-vimrc-file) I set my default C++ template
 
 ## Installation
