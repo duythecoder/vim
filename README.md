@@ -15,7 +15,7 @@
 This copy of Neovim is shipped with:
 ### Themes
 - [Everforest](https://github.com/sainnhe/everforest)
-```
+```vim
 set background=dark
 let g:everforest_background = 'soft'
 ```
@@ -31,7 +31,7 @@ let g:everforest_background = 'soft'
 
 ## Installation
 ### Step 1: Initial installation from `init.vim`
-```
+```console
 pip3 install --user neovim
 nvim
 :echo stdpath('config')
@@ -44,20 +44,20 @@ nvim
 :VimspectorInstall --all
 ```
 Find customizations of `:VimspectorInstall` [here](https://github.com/puremourning/vimspector#install-some-gadgets).
-### Step 2: ccls installation
+### Step 2: `ccls` installation (Linux only, Windows have to build from source)
 - Install NodeJS 12.12+:
-```
+```console
 sudo apt-get install nodejs
 wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 nano ~/.zshrc
 ```
 - Add the following content into the file and save:
-```
+```shell
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
 - Restart terminal.
-```
+```console
 nvm install 12.12.0
 nvm alias default 12.12.0
 sudo apt install ccls
@@ -84,9 +84,8 @@ nvim
 + ',' to move up 10 lines.
 ##### C++ compilation
 + `:wc` to compile.
-##### Copy + paste between Vim and OS
-+ `Leader + Y` for copying.
-+ `Leader + P` for pasting.
+##### Editing
++ `:cm` to comment current line/selected lines (syntax. `:[range (e.g 11,13)]cm`)
 ##### Terminal
 + `Shift + T` for starting terminal.
 + `Esc` for Terminal Normal mode.
