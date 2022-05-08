@@ -4,20 +4,41 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Everforest theme from Sainnhe
 Plug 'sainnhe/everforest'
+" onedark.vim theme from joshdick
+Plug 'joshdick/onedark.vim'
 " Powerline
 Plug 'vim-airline/vim-airline'
+" Startify: start screen
+Plug 'mhinz/vim-startify'
 " NerdTree: file explorer in Vim
 Plug 'scrooloose/nerdtree'
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
+Plug 'othree/html5.vim'
 " Inserting/deleting brackets in pairs
 Plug 'jiangmiao/auto-pairs'
+" Auto close tags for HTML
+Plug 'alvan/vim-closetag'
 " C++ Debugging
 Plug 'puremourning/vimspector'
 " Conquer of Completion (CoC)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
+
+" Startify
+nnoremap <c-n> :Startify<cr>
+let g:startify_fortune_use_unicode = 1
+
+let g:startify_bookmarks = [
+    \ { 'v': '~/.config/nvim/init.vim' }
+    \ ]
+
+let g:startify_lists = [
+          \ { 'type': 'files',     'header': ['   MRU']            },
+          \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+          \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+          \ ]
 
 " Vimspector
 " Try to load vimspector first to avoid E919
@@ -32,17 +53,23 @@ endif
 
 set background=dark
 
-let g:everforest_background='soft'
-colorscheme everforest
+"let g:everforest_background='soft'
+"colorscheme everforest
+
+syntax on
+colorscheme onedark
 
 " Enable Power Line fonts
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'everforest'
+let g:airline_theme = 'onedark'
 
 " Tab line from vim-airline
 let g:airline#extensions#tabline#enabled = 1
 " Tab name display mode
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+" Straight tabs
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " Vim settings
 set noshowmode " Hide status
@@ -59,9 +86,12 @@ set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
+set mouse=a " Enable mouse
 " ----------------------------COMMANDS--------------------------------
 " Language template
 cnoremap tcpp r ~/cp/temps/cpp.tpl <bar> :1d
+" Comment multiple lines
+cnoremap cm s#^#//
 " Automatically inserting libraries
 cnoremap ST r ~/cp/temps/libraries/segmentTree.cpp
 cnoremap lazyST r ~/cp/temps/libraries/lazySegmentTree.cpp
@@ -83,9 +113,12 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+" Fast navigation
+nnoremap m 10j
+nnoremap , 10k
 " Copy and paste between Windows and Vim
-vnoremap <leader>y "*y
-nnoremap <leader>p "*p
+vnoremap <leader>y "+y
+nnoremap <leader>p "+p
 " Move a line up/down
 nnoremap <F7> :mov +1<CR>
 nnoremap <F8> :mov -2<CR>
