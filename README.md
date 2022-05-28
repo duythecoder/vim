@@ -1,4 +1,5 @@
-# Neovim settings
+# Neovim setup
+![](https://github.com/duythecoder/vim/blob/main/shot/shot.png)
 ## Requirements
 - Linux (replace `apt` with your package manager)
 - [Neovim](https://neovim.io/)
