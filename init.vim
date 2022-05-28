@@ -1,103 +1,53 @@
-" CP Vim configuration
-
+" ----------------------------- vim-plug ------------------------------
 call plug#begin('~/.config/nvim/plugged')
 
-" Everforest theme from Sainnhe
-Plug 'sainnhe/everforest'
-" onedark.vim theme from joshdick
+" Theme
 Plug 'joshdick/onedark.vim'
-" Powerline
-Plug 'vim-airline/vim-airline'
-" Startify: start screen
-Plug 'mhinz/vim-startify'
-" NerdTree: file explorer in Vim
+" Status bar
+Plug 'itchyny/lightline.vim'
+" File browser
 Plug 'scrooloose/nerdtree'
 " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
-Plug 'othree/html5.vim'
 " Inserting/deleting brackets in pairs
 Plug 'jiangmiao/auto-pairs'
-" Auto close tags for HTML
-Plug 'alvan/vim-closetag'
-" C++ Debugging
-Plug 'puremourning/vimspector'
-" Conquer of Completion (CoC)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 call plug#end()
 
-" Startify
-nnoremap <c-n> :Startify<cr>
-let g:startify_fortune_use_unicode = 1
-
-let g:startify_bookmarks = [
-    \ { 'v': '~/.config/nvim/init.vim' }
-    \ ]
-
-let g:startify_lists = [
-          \ { 'type': 'files',     'header': ['   MRU']            },
-          \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
-          \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-          \ ]
-
-" Vimspector
-" Try to load vimspector first to avoid E919
-if has('python') || has('python3')
-	silent! packadd vimspector
-endif
-
-" Theme settings
+" ------------------------ Plugin settings ----------------------------
+" Theme
 if has('termguicolors')
- 	set termguicolors
+	set termguicolors
 endif
-
 set background=dark
-
-"let g:everforest_background='soft'
-"colorscheme everforest
-
 syntax on
 colorscheme onedark
-
-" Enable Power Line fonts
-let g:airline_powerline_fonts = 1
-let g:airline_theme = 'onedark'
-
-" Tab line from vim-airline
-let g:airline#extensions#tabline#enabled = 1
-" Tab name display mode
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-" Straight tabs
-let g:airline#extensions#tabline#left_sep = ' '
-let g:airline#extensions#tabline#left_alt_sep = '|'
-
-" Vim settings
-set noshowmode " Hide status
-set relativenumber " Relative numbering
-set cursorline " Highlight current line
-set smartindent "Makes indenting smart
-set expandtab " Converts tabs to spaces
-set linebreak " Word wrap
+" Lightline
+let g:lightline = {
+      \ 'colorscheme': 'one',
+      \ 'background': 'dark'
+      \ }
+" ------------------------- Local settings ----------------------------
+set noshowmode        " Hide status
+set relativenumber    " Relative numbering
+set smartindent       " Makes indenting smart
+set expandtab         " Converts tabs to spaces
+set linebreak         " Word wrap
 set autoindent
 set shiftwidth=4
-set tabstop=8 " Tabs are at proper location
-set nohlsearch " Remove searching highlight occurences
+set tabstop=8         " Tabs are at proper location
+set nohlsearch        " Remove searching highlight occurences
 set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
-set mouse=a " Enable mouse
-" ----------------------------COMMANDS--------------------------------
-" Language template
-cnoremap tcpp r ~/cp/temps/cpp.tpl <bar> :1d
-" Comment multiple lines
+set showtabline=2     " Always show tabs
+" ------------------------- Commands ----------------------------------
+" Comment
 cnoremap cm s#^#//
-" Automatically inserting libraries
-cnoremap ST r ~/cp/temps/libraries/segmentTree.cpp
-cnoremap lazyST r ~/cp/temps/libraries/lazySegmentTree.cpp
-" Save and compile
-cnoremap wc w <bar> !g++ -std=c++11 -O2 -Wall % -o %:r 
-" -----------------------------KEYMAP---------------------------------
+" Compile
+cnoremap wc w <bar> !g++ -std=c++11 -O2 -Wall % -o %:r
+" ------------------------- Keymap ------------------------------------
 " Map <leader> to <SPACE>
 let mapleader = ' '
 " NerdTree
@@ -116,25 +66,7 @@ nnoremap <C-l> <C-w>l
 " Fast navigation
 nnoremap m 10j
 nnoremap , 10k
-" Copy and paste between Windows and Vim
-vnoremap <leader>y "+y
-nnoremap <leader>p "+p
-" Move a line up/down
-nnoremap <F7> :mov +1<CR>
-nnoremap <F8> :mov -2<CR>
-" Terminal
-" Start terminal
-nnoremap <silent>T :vsplit <bar> :vertical resize -30 <bar> :term<CR>i
-" Exit terminal inserting mode
-tnoremap <Esc> <C-\><C-n>
-" Vimspector
-let g:vimspector_enable_mappings = 'HUMAN'
-nnoremap <leader>dd :call vimspector#Launch()<CR>
-nnoremap <leader>dx :VimspectorReset<CR>
-nnoremap <leader>de :VimspectorEval
-nnoremap <leader>dw :VimspectorWatch
-nnoremap <leader>do :VimspectorShowOutput
-" -------------------------------------------Conquer of Completion (CoC)-----
+" ------------------------ coc ----------------------------------------
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim
 set encoding=utf-8
@@ -170,11 +102,11 @@ endif
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ CheckBackspace() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
@@ -203,15 +135,13 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call ShowDocumentation()<CR>
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
+function! ShowDocumentation()
+  if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
   else
-    execute '!' . &keywordprg . " " . expand('<cword>')
+    call feedkeys('K', 'in')
   endif
 endfunction
 
@@ -303,4 +233,3 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-

@@ -1,50 +1,24 @@
 # Neovim settings
 ## Requirements
-- Ubuntu 20.04 LTS
+- Linux (replace `apt` with your package manager)
 - [Neovim](https://neovim.io/)
 - [git](https://git-scm.com/) for vim-plug
 - [vim-plug](https://github.com/junegunn/vim-plug) for installing plugins
-- [Powerline fonts](https://github.com/powerline/fonts) for the status line
-- [Python 3.6+](https://www.python.org/downloads/) for Vimspector[^1]
 - [MinGW](https://sourceforge.net/projects/mingw/) for C++ compilation
-
-![Vim on WSL1 running on Windows Terminal with Ubuntu for Powerline font](https://github.com/duythecoder/nvim-settings/blob/main/screenshots/vim.png)
-[^1]: On my PC, I have great difficulty in debugging because the debugger continuously jump into libraries, I still haven't found a solution for this.
 
 ## Properties
 This copy of Neovim is shipped with:
 ### Themes
-- [Everforest](https://github.com/sainnhe/everforest)
-```vim
-set background=dark
-let g:everforest_background = 'soft'
-```
 - [joshdick/onedark.vim](https://github.com/joshdick/onedark.vim)
 ### Others
-- [vim-airline status bar](https://github.com/vim-airline/vim-airline)
+- [Lightline status bar](https://github.com/itchyny/lightline)
 - [NerdTree file browser](https://github.com/preservim/nerdtree)
 - [vim-polyglot syntax highlighter](https://github.com/sheerun/vim-polyglot)
-- [Vimspector debugger](https://github.com/puremourning/vimspector)
-- [ccls](https://github.com/MaskRay/ccls) language server
-- [startify](https://github.com/mhinz/vim-startify) welcome screen
-- [See how](https://stackoverflow.com/questions/36341511/how-do-i-insert-text-at-the-beginning-of-a-vim-file-using-the-vimrc-file) I set my default C++ template
 
 ## Installation
-### Step 1: Initial installation from `init.vim`
-```console
-pip3 install --user neovim
-nvim
-:echo stdpath('config')
-```
-- Copy [init.vim](https://github.com/duythecoder/nvim-settings/blob/main/init.vim) into the on-screen directory.
-```
-:w
-:so %
-:PlugInstall
-:VimspectorInstall --all
-```
-Find customizations of `:VimspectorInstall` [here](https://github.com/puremourning/vimspector#install-some-gadgets).
-### Step 2: `ccls` installation (Linux only, Windows have to build from source)
+### Initial installation
+Clone `init.vim` and install each components one by one (it may throw errors).
+### `ccls` installation (Linux only, Windows have to build from source)
 - Install NodeJS 12.12+:
 ```console
 sudo apt-get install nodejs
@@ -81,44 +55,20 @@ nvim
 + `Ctrl + K` for **top** pane.
 ##### Navigation
 + `m` to move down 10 lines.
-+ ',' to move up 10 lines.
++ `,` to move up 10 lines.
 ##### C++ compilation
 + `:wc` to compile.
 ##### Editing
 + `:cm` to comment current line/selected lines (syntax. `:[range (e.g 11,13)]cm`)
-##### Terminal
-+ `Shift + T` for starting terminal.
-+ `Esc` for Terminal Normal mode.
 #### Plugin settings
 ##### NerdTree
 + `Leader + F` for viewing file.
 + `Leader + T` for toggling.
-##### vim-airline#tabline
+##### Tabs
 + `Ctrl + T` for new tab.
 + `Ctrl + W` for closing current tab.
 + `Tab` for switching to next tab.
 + `Shift + Tab` for switching to previous tab.
-##### vim-spector
-- Mapping: **HUMAN** mode
-
-| Key      | Function |
-| :---    |    :----  |
-| `F3` | Stop debugging |
-| `F6`  | Pause debugger |
-| `F9` | Toggle breakpoint for current line |
-| `Leader + F9`  | 	Toggle conditional line breakpoint or logpoint on the current line |
-| `F8` | Add a function breakpoint for the expression under cursor |
-| `Leader + F8`  | 	Run to cursor |
-| `F10`  | 	Step over |
-| `F11` | Step into |
-| `F12`  | 	Step out of current function scope |
-
-- Custom keymaps:
-  - `Leader + dd` to start debugging.
-  - `Leader + dx` to reset the debugger.
-  - `Leader + de` to evaluate an expression.
-  - `Leader + dw` to set a watch on a variable.
-  - `Leader + do` to show the output.
 ##### coc (Example key bindings)
 - `Tab` for completion.
 - `<cr>` to choose first completion item.
