@@ -5,7 +5,7 @@
 - [Neovim](https://neovim.io/)
 - [git](https://git-scm.com/) for vim-plug
 - [vim-plug](https://github.com/junegunn/vim-plug) for installing plugins
-- [MinGW](https://sourceforge.net/projects/mingw/) for C++ compilation
+- g++/[MinGW for Windows](https://sourceforge.net/projects/mingw/) for C++ compilation
 
 ## Properties
 This copy of Neovim is shipped with:

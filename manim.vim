@@ -58,6 +58,12 @@ set foldmethod=indent
 set foldnestmax=10
 set nofoldenable
 set foldlevel=2
+set showtabline=2     " Always show tabline
+" ------------------Aliases------------------------------------
+cnoremap rp w <bar> !manim -sql % 
+cnoremap rv w <bar> !manim -pql % 
+cnoremap ex w <bar> !manim -qh % 
+cnoremap rc tabnew c:\users\duy\appdata\local\nvim\init.vim
 " ------------------Keymap-------------------------------------
 " Map <leader> to <SPACE>
 let mapleader = ' '
