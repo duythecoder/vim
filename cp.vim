@@ -13,7 +13,6 @@ Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
-
 " ------------------------ Plugin settings ----------------------------
 " Theme
 if has('termguicolors')
@@ -43,10 +42,12 @@ set nofoldenable
 set foldlevel=2
 set showtabline=2     " Always show tabs
 " ------------------------- Commands ----------------------------------
-" Comment
-cnoremap cm s#^#//
 " Compile
 cnoremap wc w <bar> !g++ -std=c++11 -O2 -Wall % -o %:r
+" ------------------------ Auto-commands ------------------------------
+" When Vim starts up
+" Add Termdebug
+autocmd VimEnter * packadd termdebug
 " ------------------------- Keymap ------------------------------------
 " Map <leader> to <SPACE>
 let mapleader = ' '
@@ -56,7 +57,6 @@ nnoremap <silent><leader>t :NERDTreeToggle<CR>
 " Switch tab using TAB
 nnoremap <silent><TAB> :bnext<CR>
 nnoremap <silent><S-TAB> :bprevious<CR>
-nnoremap <silent><C-w> :close<CR>
 nnoremap <silent><C-t> :tabnew<CR>
 " Switch between multiple files
 nnoremap <C-h> <C-w>h
@@ -66,6 +66,8 @@ nnoremap <C-l> <C-w>l
 " Fast navigation
 nnoremap m 10j
 nnoremap , 10k
+" Leave terminal mode
+tnoremap <Esc> <C-\><C-n>
 " ------------------------ coc ----------------------------------------
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
 " unicode characters in the file autoload/float.vim

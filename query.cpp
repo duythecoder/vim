@@ -15,6 +15,8 @@ using namespace std;
 #define ll long long
 #define ull unsigned long long
 
+#define vi vector<int>
+
 const int mod = 1e9 + 7;
 const int mxn = 1e5 + 1;
 
