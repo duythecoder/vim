@@ -31,17 +31,17 @@ nano ~/.zshrc
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 ```
-- Restart terminal.
 ```console
+exec bash
 nvm install 12.12.0
 nvm alias default 12.12.0
 sudo apt install ccls
 nvim
 :CocConfig
 ```
-- Copy from [coc-settings.json](https://github.com/duythecoder/nvim-settings/blob/main/plugin-assets/coc/coc-settings.json)
+- Copy from [coc-settings.json](https://github.com/duythecoder/vim/blob/main/plug/coc/coc-settings.json)
 - Copy example coc key bindings and other vim config from [here](https://github.com/neoclide/coc.nvim#example-vim-configuration).
-- Enable C++17: copy [.ccls](https://github.com/duythecoder/nvim-settings/blob/main/plugin-assets/coc/.ccls) in root project folder.
+- Enable C++17: copy [.ccls](https://github.com/duythecoder/vim/blob/main/plug/coc/.ccls) in root project folder.
 
 [Full guide](https://www.youtube.com/watch?v=ViHgyApE9zM)
 
