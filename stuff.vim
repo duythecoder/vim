@@ -66,7 +66,7 @@ cnoremap rv w <bar> !manim -pql %
 cnoremap ev w <bar> !manim -qh % 
 cnoremap ep w <bar> !pdflatex %
 cnoremap rc tabnew c:\users\duy\appdata\local\nvim\init.vim
-cnoremap ws w <bar> !g++ -std=c++17 % -I%:p:h\SDL2\include -L%:p:h\SDL2\lib -Wall -lmingw32 -lSDL2main -lSDL2 -o %:r
+cnoremap ws w <bar> !build.bat
 " ------------------Keymap-------------------------------------
 " Map <leader> to <SPACE>
 let mapleader = ' '
