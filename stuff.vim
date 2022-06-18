@@ -1,3 +1,4 @@
+" Vim configuration for manim, LaTeX and C++ with SDL2
 " --------------------vim-plug--------------------------------
 call plug#begin('C:\Users\duy\AppData\Local\nvim\plugged')
 
@@ -62,8 +63,10 @@ set showtabline=2     " Always show tabline
 " ------------------Aliases------------------------------------
 cnoremap rp w <bar> !manim -sql % 
 cnoremap rv w <bar> !manim -pql % 
-cnoremap ex w <bar> !manim -qh % 
+cnoremap ev w <bar> !manim -qh % 
+cnoremap ep w <bar> !pdflatex %
 cnoremap rc tabnew c:\users\duy\appdata\local\nvim\init.vim
+cnoremap ws w <bar> !g++ -std=c++17 % -I%:p:h\SDL2\include -L%:p:h\SDL2\lib -Wall -lmingw32 -lSDL2main -lSDL2 -o %:r
 " ------------------Keymap-------------------------------------
 " Map <leader> to <SPACE>
 let mapleader = ' '
@@ -86,3 +89,5 @@ nnoremap , 10k
 " Move a line up/down
 nnoremap <F7> :mov +1<CR>
 nnoremap <F8> :mov -2<CR>
+" Exit terminal
+tnoremap <Esc> <C-\><C-n>
